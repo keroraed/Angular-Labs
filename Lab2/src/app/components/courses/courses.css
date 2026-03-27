@@ -1,0 +1,30 @@
+.courses-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+.filter-bar {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.course-card {
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.course-image {
+  height: 210px;
+  object-fit: cover;
+}
+
+.course-full {
+  color: #b42318;
+  border-color: #f4b3ad;
+}

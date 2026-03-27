@@ -1,0 +1,54 @@
+<section class="courses-wrapper py-4">
+  <h1 class="text-center mb-4">Course Catalog</h1>
+
+  @if (registrationMessage(); as message) {
+    <p class="alert alert-success text-center" role="status" aria-live="polite">{{ message }}</p>
+  }
+
+  <div class="filter-bar mb-4">
+    <label for="categorySelect" class="form-label fw-semibold">Filter by Category</label>
+    <select id="categorySelect" class="form-select" [(ngModel)]="selectedCategory">
+      @for (category of categories; track category) {
+        <option [value]="category">{{ category }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    @for (course of filteredCourses; track course.id) {
+      <div class="col">
+        <article
+          class="card h-100 shadow-sm course-card"
+          [ngClass]="{ 'course-full': course.seats === 0 }"
+          [style.backgroundColor]="course.seats > 0 && course.seats <= 2 ? '#fff4d6' : '#ffffff'"
+        >
+          <img [src]="course.Image" [alt]="course.title + ' image'" class="card-img-top course-image" />
+
+          <div class="card-body d-flex flex-column gap-2">
+            <h5 class="card-title">{{ course.title }}</h5>
+            <p class="mb-0"><strong>Instructor:</strong> {{ course.instructor }}</p>
+            <p class="mb-0"><strong>Price:</strong> ${{ course.price }}</p>
+            <p class="mb-0"><strong>Seats Available:</strong> {{ course.seats }}</p>
+
+            @if (course.seats === 0) {
+              <p class="mb-0 fw-semibold">Course Full</p>
+            } @else if (course.seats <= 2) {
+              <p class="mb-0 fw-semibold">Almost Full</p>
+            }
+
+            <button
+              type="button"
+              class="btn btn-primary mt-auto"
+              (click)="register(course.id)"
+              [disabled]="course.seats === 0"
+            >
+              Register
+            </button>
+          </div>
+        </article>
+      </div>
+    } @empty {
+      <p class="text-center fw-semibold m-0">No courses available in this category.</p>
+    }
+  </div>
+</section>
