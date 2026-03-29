@@ -2,12 +2,14 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Course, CourseCategory } from '../../models/icourse';
+import { DiscountPipe } from '../../pipes/discount.pipe';
+import { DisableAfterClickDirective } from '../../directives/disable-after-click.directive';
 
 type CategoryFilter = 'All' | CourseCategory;
 
 @Component({
   selector: 'app-courses',
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule, NgClass, DiscountPipe, DisableAfterClickDirective],
   templateUrl: './courses.html',
   styleUrl: './courses.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
