@@ -1,1 +1,12 @@
-<app-courses></app-courses>
+<header class="main-header">
+	<nav class="main-nav" aria-label="Main navigation">
+		<a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+		<a routerLink="/about-us" routerLinkActive="active-link">About Us</a>
+		<a routerLink="/contact-us" routerLinkActive="active-link">Contact Us</a>
+		<a routerLink="/courses" routerLinkActive="active-link">Courses</a>
+	</nav>
+</header>
+
+<main class="page-content">
+	<router-outlet></router-outlet>
+</main>

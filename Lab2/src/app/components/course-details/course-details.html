@@ -1,0 +1,24 @@
+<section class="course-details-wrapper py-4">
+  @if (course(); as selectedCourse) {
+    <article class="card shadow-sm course-details-card">
+      <img [src]="selectedCourse.Image" [alt]="selectedCourse.title + ' image'" class="card-img-top details-image" />
+      <div class="card-body d-flex flex-column gap-2">
+        <h2 class="card-title">{{ selectedCourse.title }}</h2>
+        <p class="mb-0"><strong>Instructor:</strong> {{ selectedCourse.instructor }}</p>
+        <p class="mb-0"><strong>Category:</strong> {{ selectedCourse.category }}</p>
+        <p class="mb-0"><strong>Price:</strong> ${{ selectedCourse.price }}</p>
+        <p class="mb-0"><strong>Seats Available:</strong> {{ selectedCourse.seats }}</p>
+
+        <a class="btn btn-outline-primary mt-3 align-self-start" routerLink="/courses">Back to Courses</a>
+      </div>
+    </article>
+  } @else {
+    <article class="card shadow-sm course-details-card">
+      <div class="card-body">
+        <h2 class="card-title">Course Not Found</h2>
+        <p class="mb-0">The requested course id is invalid or does not exist.</p>
+        <a class="btn btn-outline-primary mt-3" routerLink="/courses">Back to Courses</a>
+      </div>
+    </article>
+  }
+</section>

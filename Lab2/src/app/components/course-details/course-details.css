@@ -1,0 +1,14 @@
+.course-details-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.course-details-card {
+  overflow: hidden;
+}
+
+.details-image {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}

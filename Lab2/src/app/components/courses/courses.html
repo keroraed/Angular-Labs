@@ -38,15 +38,18 @@
               <p class="mb-0 fw-semibold">Almost Full</p>
             }
 
-            <button
-              type="button"
-              class="btn btn-primary mt-auto"
-              appDisableAfterClick
-              (click)="register(course.id)"
-              [disabled]="course.seats === 0"
-            >
-              Register
-            </button>
+            <div class="d-flex gap-2 mt-auto">
+              <a class="btn btn-outline-primary" [routerLink]="['/course', course.id]">Details</a>
+              <button
+                type="button"
+                class="btn btn-primary"
+                appDisableAfterClick
+                (click)="register(course.id)"
+                [disabled]="course.seats === 0"
+              >
+                Register
+              </button>
+            </div>
           </div>
         </article>
       </div>
